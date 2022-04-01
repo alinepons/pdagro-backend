@@ -9,7 +9,6 @@ const port = process.env.PORT;
 app.use(express.json())
 
 app.get('/', (req: Request, res: Response) => {
-
   res.json({server: "pdagro"});
 });
 
