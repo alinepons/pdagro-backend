@@ -1,14 +1,14 @@
-import express, { Express, Request, Response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-const app: Express = express();
+const app = express();
 const port = process.env.PORT;
 
 app.use(express.json())
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req, res) => {
   res.json({server: "pdagro"});
 });
 
