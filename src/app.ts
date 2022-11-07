@@ -1,17 +1,19 @@
-import express from 'express';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import express, { json } from 'express';
+import userRouter from './routes/users.route';
+import authRouter from './routes/auth.route';
+import cors from 'cors';
 
 const app = express();
-const port = process.env.PORT;
 
-app.use(express.json())
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.json({server: "pdagro"});
-});
+app.use(cors());
+app.use(express.json());
+
+// Registra rotas.
+app.use('/users', userRouter);
+app.use('/auth', authRouter);
 
 app.listen(port, () => {
-  console.log(`⚡️[server]: Servidor rodando em https://localhost:${port}`);
+    console.log(`Listening ${port}`);
 });
