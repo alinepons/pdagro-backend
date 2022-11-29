@@ -1,6 +1,7 @@
 export class AuthDto {
-    username: string = '';
+    email: string = '';
     password: string = '';
+    code?: string
 
     constructor(init: Partial<AuthDto>) {
         Object.assign(this, init);

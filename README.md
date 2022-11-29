@@ -1,2 +1,2 @@
 # pdagro-backend
-Repositório do backend da aplicação pdagro
+Repositório do backend da aplicação PDAgro

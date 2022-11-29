@@ -1,50 +1,92 @@
-import DB from "../tests/db";
-import { FullUserDto } from "../dtos/full-user-dto";
+
 import { UserDto } from "../dtos/user-dto";
-import * as bcrypt from 'bcrypt';
 import { BaseService } from "./base.service";
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { generateCode } from "../utils/generator";
 
 export default class UserService extends BaseService {
 
-    async insert(input: FullUserDto): Promise<UserDto | null> {
-        let users = await DB.users();
-    
-        input.id = users.length + 1;
-        input.password = await bcrypt.hash(input.password, 12);
-    
-        users.push(input);
-    
-        return new UserDto({email: input.email, fullName: input.fullName, id: input.id});
+
+    /**
+     * Cria um novo usuário
+     * @param user UserDto
+     * @returns 
+     */
+    async createUser(user: UserDto): Promise<UserDto | Error> {
+
+        const query = this.database("tb_user")
+            .insert(user)
+            .returning('*')
+
+        try {
+            const result = await query
+            return result[0]
+        } catch (error) {
+            return error as Error
+        }
     }
 
-    async getMyUser(): Promise<UserDto | null> {
-        let users = await DB.users();
-    
-        let user = users.find(x => x.id === this.userId);
-    
-        if(user)
-            return new UserDto({email: user.email, fullName: user.fullName, id: user.id});
-    
-        throw 'Not found.';
+    /**
+     * Busca um usuário que corresponda os parâmetros informados
+     * @param id string
+     * @param email string
+     * @param code string
+     * @returns
+     */
+    public async readUser(id?: string | null, email?: string | null): Promise<UserDto | Error> {
+
+        const query = this.database("tb_user").first()
+
+        if (id) query.where("id", id)
+        if (email) query.where("email", email)
+
+        try {
+            const result = await query
+            return result
+        } catch (error) {
+            return error as Error
+        }
     }
 
-    async getUsers(): Promise<UserDto[] | null> {
-        /* CONEXAO E VAI RETORNAR OS USUÁRIOS. */
+    /**
+     * Atualiza um usuário
+     * @param user UserDto
+     * @returns 
+     */
+    async updateUser(user: UserDto): Promise<UserDto | Error> {
 
-        const uri = "mongodb+srv://aline:tMyulY9r5fmRbKwz@cluster.0ba8lzm.mongodb.net/?retryWrites=true&w=majority"; //"mongodb+srv://wendell93:SF8mGKx251IkZ35s@clustersaopaulo.mt1r4.mongodb.net/?retryWrites=true&w=majority";
+        const query = this.database("tb_user")
+            .where("id", user.id)
+            .update(user)
+            .returning('*')
 
-        let client = await MongoClient.connect(uri);
+        try {
+            const result = await query
+            return result[0]
+        } catch (error) {
+            return error as Error
+        }
+    }
 
-        let db = client.db('pdagro'); //consulta o banco de dados
+    /**
+     * Exclui um usuário tornando-o inativo para posterior exclusão definitiva
+     * @param user UserDto
+     * @returns 
+     */
+    async deleteUser(user: UserDto): Promise<any | Error> {
 
-        console.log('Connected to Database');
+        user.deleted_at = new Date()
+        user.active = false
+        user.confirmed = false
+        user.confirmationCode = generateCode()
+        user.blocked = true
 
-        await db.collection<UserDto>('user').insertOne(new UserDto({email: 'usuario2@teste2', fullName:'teste2 teste2'}));
-
-        let dbUsers = await db.collection<UserDto>('user').find().toArray();
-
-        return dbUsers;
+        const query = this.database("tb_user").update(user).where("id", user.id)
+        try {
+            const result = await query
+            return result
+        } catch (error) {
+            return error as Error
+        }
     }
 }
 
