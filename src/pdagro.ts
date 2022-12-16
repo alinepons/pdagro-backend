@@ -1,6 +1,7 @@
 import express, { NextFunction, Request, Response } from 'express';
 import userRouter from './routes/users.route';
 import authRouter from './routes/auth.route';
+import replyRouter from './routes/reply.route';
 import businessRouter from './routes/business.route';
 import * as jwt from './utils/jwt';
 import cors from 'cors';
@@ -15,6 +16,7 @@ app.use(express.json());
 // Registra rotas.
 app.use('/user', jwt.verifyToken, userRouter);
 app.use('/business', jwt.verifyToken, businessRouter);
+app.use('/reply', replyRouter);
 app.use('/auth', authRouter);
 
 // Tratamento de erros
