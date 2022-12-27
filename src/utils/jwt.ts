@@ -28,6 +28,8 @@ export function verifyToken(request: Request, response: Response, next: NextFunc
 
         jwt.verify(token, secret);
 
+        response.locals.userId = extractUserId(token)
+
         next();
     } catch (err) {
         response.status(401).send();
