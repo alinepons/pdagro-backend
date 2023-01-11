@@ -6,8 +6,9 @@ export const QUESTIONS = [
             {
                 "_id": 1,
                 "title": "Qual é o porte da empresa?",
-                "comment": "`Segundo o SEBRAE, existem parâmetros para definir o porte de uma empresa: Microempreendedor Individual (faturamento até R$ 81.000,00 anual); Microempresa (faturamento até R$ 360.000,00 anual); Empresas de Pequeno Porte (faturamento de R$ 360.000,00 a R$ 4.8 milhões anuais); Empresas de Médio Porte (faturamento de R$ 4.8 milhões a R$ 300 milhões anuais); Pequeno Produtor Rural (propriedade com até 4 módulos fiscais ou faturamento de até R$ 4.8 milhões anuais).`",
+                "comment": "Segundo o SEBRAE, existem parâmetros para definir o porte de uma empresa: Microempreendedor Individual (faturamento até R$ 81.000,00 anual); Microempresa (faturamento até R$ 360.000,00 anual); Empresas de Pequeno Porte (faturamento de R$ 360.000,00 a R$ 4.8 milhões anuais); Empresas de Médio Porte (faturamento de R$ 4.8 milhões a R$ 300 milhões anuais); Pequeno Produtor Rural (propriedade com até 4 módulos fiscais ou faturamento de até R$ 4.8 milhões anuais).",
                 "multiple": false,
+                "type": "radio",
                 "options": [
                     {
                         "_id": 1,
@@ -31,7 +32,8 @@ export const QUESTIONS = [
                 "_id": 2,
                 "title": "Qual é o ramo de atividade no agronegócio?",
                 "comment": null,
-                "multiple": true,
+                "multiple": false,
+                "type": "radio",
                 "options": [
                     {
                         "_id": 1,
@@ -56,6 +58,7 @@ export const QUESTIONS = [
                 "title": "Qual é o grau de formação do gestor?",
                 "comment": null,
                 "multiple": false,
+                "type": "radio",
                 "options": [
                     {
                         "_id": 1,
@@ -78,11 +81,11 @@ export const QUESTIONS = [
                         "text": "Ensino médio incompleto"
                     },
                     {
-                        "_id": 4,
+                        "_id": 6,
                         "text": "Ensino fundamental completo"
                     },
                     {
-                        "_id": 4,
+                        "_id": 7,
                         "text": "Ensino fundamental incompleto"
                     }
                 ]
@@ -92,6 +95,7 @@ export const QUESTIONS = [
                 "title": "A formação do gestor é na área do agronegócio?",
                 "comment": null,
                 "multiple": false,
+                "type": "radio",
                 "options": [
                     {
                         "_id": 1,
@@ -105,16 +109,18 @@ export const QUESTIONS = [
             },
             {
                 "_id": 5,
-                "title": "Qual é a formação?",
+                "title": "Qual é a formação do gestor?",
                 "comment": null,
                 "multiple": false,
+                "type": "text",
                 "options": null
             },
             {
                 "_id": 6,
                 "title": "Quantos colaboradores a empresa possui?",
-                "comment": "`Segundo o SEBRAE, existe uma definição de porte de estabelecimentos segundo o número de empregados. Os parâmetros para comércio e serviços são: Microempresa (ME) até 9 empregados, Empresa de Pequeno Porte (EPP) de 10 a 49 empregados, Empresa de Médio Porte de 50 a 99 empregados. Na indústria, os parâmetros são: Microempresa (ME) até 19 empregados, Empresa de Pequeno Porte (EPP) de 20 a 99 empregados, Empresa de Médio Porte de 100 a 499 empregados`",
+                "comment": "Segundo o SEBRAE, existe uma definição de porte de estabelecimentos segundo o número de empregados. Os parâmetros para comércio e serviços são: Microempresa (ME) até 9 empregados, Empresa de Pequeno Porte (EPP) de 10 a 49 empregados, Empresa de Médio Porte de 50 a 99 empregados. Na indústria, os parâmetros são: Microempresa (ME) até 19 empregados, Empresa de Pequeno Porte (EPP) de 20 a 99 empregados, Empresa de Médio Porte de 100 a 499 empregados.",
                 "multiple": false,
+                "type": "radio",
                 "options": [
                     {
                         "_id": 1,
