@@ -4,8 +4,7 @@ import * as companyController from '../controllers/company.controller'
 const router = express.Router();
 
 router.post('/create', companyController.createCompany);
-router.get('/read/:id', companyController.getCompanyById);
- router.get('/read/user/:id', companyController.getCompanyByUser);
-// router.put('/update', usersController.getUsers);
+router.get('/readByUser', companyController.getCompanyByUser);
+router.get('/readById', companyController.getCompanyById);
 
 export default router;

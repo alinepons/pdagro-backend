@@ -3,10 +3,8 @@ export class CompanyDto {
     id: string = ''
     user: string = ''
     name: string = ''
-    email: string = ''
-    phone: string = ''
     cnpj: string = ''
-    website?: string
+    info: any
 
     constructor(init: Partial<CompanyDto>) {
         Object.assign(this, init);

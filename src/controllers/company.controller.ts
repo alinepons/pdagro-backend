@@ -5,12 +5,16 @@ import { Request, Response } from 'express';
 import CompanyService from '../services/company.service';
 import { generateId } from '../utils/generator';
 
+
 export async function getCompanyById(request: Request, response: Response, next: NextFunction) {
-
-    const companyId = request.params.companyId
-
     try {
-        response.json({ _id: companyId });
+
+        const companyId = request.query.id as string
+
+        const companyService = new CompanyService(request)
+        const company = await companyService.getCompanyById(companyId)
+
+        response.json(company);
     }
     catch (err) {
         next(err);
@@ -18,11 +22,14 @@ export async function getCompanyById(request: Request, response: Response, next:
 }
 
 export async function getCompanyByUser(request: Request, response: Response, next: NextFunction) {
-
-    const userId = response.locals.userId
-
     try {
-        response.json({ _id: userId });
+
+        const userId = response.locals.userId
+
+        const companyService = new CompanyService(request)
+        const company = await companyService.getCompanyByUser(userId)
+
+        response.json(company);
     }
     catch (err) {
         next(err);
@@ -40,10 +47,8 @@ export async function createCompany(request: Request, response: Response, next: 
             id: generateId(),
             user: userId,
             name: request.body.name.trim(),
-            email: request.body.email.trim().toLowerCase(),
-            phone: request.body.phone.trim(),
             cnpj: request.body.cnpj.trim(),
-            website: request.body.website.trim()
+            info: request.body.info
         })
 
         const company = await companyService.createCompany(companyModel)

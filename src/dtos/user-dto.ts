@@ -4,9 +4,6 @@ export class UserDto {
     fullname: string = ''
     email: string = ''
     password: string = ''
-    mobile?: string
-    avatar?: string
-    cpf: string = ''
     confirmationCode: string = '' 
     active?: boolean  
     blocked?: boolean

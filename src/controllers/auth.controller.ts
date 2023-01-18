@@ -11,6 +11,7 @@ import { signToken } from '../utils/jwt';
 import SessionService from '../services/session.service';
 import { UserDto } from "../dtos/user-dto";
 import { sendCode, sendForgotPasswordEmail, sendResetPasswordEmail, sendWelcomeEmail } from "../services/mail.service";
+import CompanyService from "../services/company.service";
 
 export async function register(request: Request, response: Response, next: NextFunction) {
 
@@ -36,8 +37,7 @@ export async function register(request: Request, response: Response, next: NextF
             fullname: request.body.fullname.trim(),
             email: request.body.email.trim().toLowerCase(),
             password: await bcrypt.hash(request.body.password.trim(), 10),
-            confirmationCode: generateCode(),
-            cpf: request.body.cpf.trim()
+            confirmationCode: generateCode()
         })
 
         const user = await serviceRegister.createUser(registerModel)
@@ -120,11 +120,14 @@ export async function login(request: Request, response: Response, next: NextFunc
             return
         }
 
-        if(!user.confirmed && user.confirmationCode === loginModel.code){
+        if (!user.confirmed && user.confirmationCode === loginModel.code) {
             user.confirmed = true
             user.confirmationCode = generateCode()
             await updateUser(user, request)
         }
+
+        const companyService = new CompanyService(request)
+        const company = await companyService.getCompanyByUser(user.id)
 
         // @ts-expect-error
         delete user.password
@@ -134,7 +137,8 @@ export async function login(request: Request, response: Response, next: NextFunc
         // Success
         response.json({
             token: session.token,
-            user
+            user,
+            company: (company && company.id) ? company : null 
         })
 
     } catch (error: any) {
