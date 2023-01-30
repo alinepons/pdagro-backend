@@ -367,7 +367,7 @@ export const QUESTIONS = [
                 "comment": "Considera-se privacidade desde a criação dos processos, prevenir incidentes, em que o sistema, produto ou serviço se origina com o conceito de proteger os dados pessoais de titulares, evitar coleta de dados além do necessário, considerar segurança em todas as etapas, ser transparente ao informar as operações que são realizadas com os dados e respeitar a privacidade do titular.",
                 "multiple": false,
                 "peso": 5,
-                "feedback": "Informar as diretrizes do tratamento (art. 7º e 50, LGPD). Usar política de privacidade atualizada que informe a coleta de dados, os direitos dos titulares, tempo de armazenamento, medidas de segurança, e compartilhamento.",
+                "feedback": "Informar as diretrizes do tratamento (art. 7º e 50, LGPD). Usar política de privacidade atualizada que informe: política de segurança da informação, política de gestão de acesso, política de retenção de dados, política de atendimento a direito dos titulares, política de compartilhamento dos dados e política de tratamento de incidentes.",
                 "options": [
                     {
                         "_id": 1,
@@ -730,14 +730,14 @@ export const QUESTIONS = [
     {
         "_id": 5,
         "step": "Aprendizado",
-        "peso": 2, 
+        "peso": 2,
         "items": [
             {
                 "_id": 1,
                 "title": "Os colaboradores participam de treinamento relacionado a proteção de dados pessoais?",
                 "comment": null,
                 "multiple": false,
-                "peso":2,
+                "peso": 2,
                 "feedback": "Adotar boas práticas e padrões de segurança (art. 50 e 51, LGPD). Realizar treinamentos, com simulações, banners, questionários e ações educativas, assim como disseminação do conhecimento.",
                 "options": [
                     {
@@ -772,7 +772,7 @@ export const QUESTIONS = [
                 "title": "Existe a conscientização sobre proteção de dados para evitar incidentes, por exemplo, não clicar em links desconhecidos ou não manter documentos sobre a mesa de trabalho?",
                 "comment": null,
                 "multiple": false,
-                "peso":2,
+                "peso": 2,
                 "feedback": "Supervisionar tratamentos e adotar medidas organizacionais (art. 39 e 46, LGPD). Ter um plano de conscientização que preveja recorrência, ações de testes contendo atividades preestabelecidas.",
                 "options": [
                     {
@@ -807,7 +807,7 @@ export const QUESTIONS = [
                 "title": "Existe treinamento para apagar dados que são manipulados ou para descarte de equipamentos (computador, tablet e celular) com segurança?",
                 "comment": null,
                 "multiple": false,
-                "peso":2,
+                "peso": 2,
                 "feedback": "Verificar definição e gerir incidentes (art. 49, LGPD). Adotar método seguro para eliminar dados e equipamentos que não seja possível a fazer a recuperação e uso.",
                 "options": [
                     {
@@ -837,6 +837,172 @@ export const QUESTIONS = [
                     }
                 ]
             }
+        ]
+    },
+    {
+        "_id": 6,
+        "step": "Usabilidade",
+        "items": [
+            {
+                "_id": 1,
+                "title": "Os termos utilizados são fáceis de entender?",
+                "multiple": false,
+                "options": [
+                    {
+                        "_id": 1,
+                        "text": "Extremamente fácil",
+                        "amount": 5
+                    },
+                    {
+                        "_id": 2,
+                        "text": "Muito fácil",
+                        "amount": 4
+                    },
+                    {
+                        "_id": 3,
+                        "text": "Moderadamente fácil",
+                        "amount": 3
+                    },
+                    {
+                        "_id": 4,
+                        "text": "Ligeiramente fácil",
+                        "amount": 2
+                    },
+                    {
+                        "_id": 5,
+                        "text": "Nada fácil",
+                        "amount": 1
+                    }
+                ]
+            },
+            {
+                "_id": 2,
+                "title": "A disposição das informações é consistente na tela do navegador?",
+                "multiple": false,
+                "options": [
+                    {
+                        "_id": 1,
+                        "text": "Extremamente consistente",
+                        "amount": 5
+                    },
+                    {
+                        "_id": 2,
+                        "text": "Muito consistente",
+                        "amount": 4
+                    },
+                    {
+                        "_id": 3,
+                        "text": "Moderadamente consistente",
+                        "amount": 3
+                    },
+                    {
+                        "_id": 4,
+                        "text": "Ligeiramente consistente",
+                        "amount": 2
+                    },
+                    {
+                        "_id": 5,
+                        "text": "Nada consistente",
+                        "amount": 1
+                    }
+                ]
+            },
+            {
+                "_id": 3,
+                "title": "É fácil avançar e retornar nas telas da aplicação?",
+                "multiple": false,
+                "options": [
+                    {
+                        "_id": 1,
+                        "text": "Extremamente fácil",
+                        "amount": 5
+                    },
+                    {
+                        "_id": 2,
+                        "text": "Muito fácil",
+                        "amount": 4
+                    },
+                    {
+                        "_id": 3,
+                        "text": "Moderadamente fácil",
+                        "amount": 3
+                    },
+                    {
+                        "_id": 4,
+                        "text": "Ligeiramente fácil",
+                        "amount": 2
+                    },
+                    {
+                        "_id": 5,
+                        "text": "Nada fácil",
+                        "amount": 1
+                    }
+                ]
+            },
+            {
+                "_id": 4,
+                "title": "As perguntas do diagnóstico são pertinentes ao negócio?",
+                "multiple": false,
+                "options": [
+                    {
+                        "_id": 1,
+                        "text": "Extremamente pertinente",
+                        "amount": 5
+                    },
+                    {
+                        "_id": 2,
+                        "text": "Muito pertinente",
+                        "amount": 4
+                    },
+                    {
+                        "_id": 3,
+                        "text": "Moderadamente pertinente",
+                        "amount": 3
+                    },
+                    {
+                        "_id": 4,
+                        "text": "Ligeiramente pertinente",
+                        "amount": 2
+                    },
+                    {
+                        "_id": 5,
+                        "text": "Nada pertinente",
+                        "amount": 1
+                    }
+                ]
+            },
+            {
+                "_id": 4,
+                "title": "Você recomendaria o diagnóstico PDAgro para outras empresas?",
+                "multiple": false,
+                "options": [
+                    {
+                        "_id": 1,
+                        "text": "Definitivamente sim",
+                        "amount": 5
+                    },
+                    {
+                        "_id": 2,
+                        "text": "Provavelmente sim",
+                        "amount": 4
+                    },
+                    {
+                        "_id": 3,
+                        "text": "Não estou certo",
+                        "amount": 3
+                    },
+                    {
+                        "_id": 4,
+                        "text": "Provavelmente não",
+                        "amount": 2
+                    },
+                    {
+                        "_id": 5,
+                        "text": "Definitivamente não",
+                        "amount": 1
+                    }
+                ]
+            },
         ]
     }
 ]
