@@ -6,6 +6,7 @@ import { QUESTIONS } from '../utils/questions';
 import { generateId } from '../utils/generator';
 import Pdfmake from 'pdfmake'
 import { TDocumentDefinitions } from 'pdfmake/interfaces';
+import { FeedbackDto } from '../dtos/feedback-dto';
 
 export async function getQuestions(request: Request, response: Response, next: NextFunction) {
     try {
@@ -20,6 +21,7 @@ export async function createDiagnostic(request: Request, response: Response, nex
 
     try {
         const userId = response.locals.userId
+        const feedback = request.body.feedback
 
         const diagnosticService = new DiagnosticService(request)
 
@@ -30,9 +32,21 @@ export async function createDiagnostic(request: Request, response: Response, nex
             reply: request.body.reply
         })
 
+
         const diagnostic = await diagnosticService.createDiagnostic(diagnosticModel)
 
-        response.json(diagnostic);
+        if (feedback) {
+
+            const feedbackModel = new FeedbackDto({
+                id: generateId(),
+                user: userId,
+                reply: feedback
+            })
+
+            await diagnosticService.createFeedback(feedbackModel)
+        }
+
+        response.json({ message: "Diagnóstico realizado com sucesso!" });
     }
     catch (err) {
         next(err);
@@ -56,11 +70,41 @@ export async function getDiagnostic(request: Request, response: Response, next: 
     }
 }
 
+export async function getFeedback(request: Request, response: Response, next: NextFunction) {
+
+    try {
+        const userId = response.locals.userId
+        const diagnosticService = new DiagnosticService(request)
+        const diagnostic = await diagnosticService.getFeedback(userId)
+
+        response.json(diagnostic);
+    }
+    catch (err) {
+        next(err);
+    }
+}
+
+export async function deleteDiagnostic(request: Request, response: Response, next: NextFunction) {
+
+    try {
+        const diagnosticId = request.query.id as string
+        const diagnosticService = new DiagnosticService(request)
+        const diagnostic = await diagnosticService.deleteDiagnostic(diagnosticId)
+
+        response.json(diagnostic);
+    }
+    catch (err) {
+        next(err);
+    }
+}
+
 export async function getCertificate(request: Request, response: Response, next: NextFunction) {
 
     try {
 
-        const data = request.body.data
+        const content = request.body.data
+
+        console.log(content)
 
         const fonts = {
             Roboto: {
@@ -73,86 +117,196 @@ export async function getCertificate(request: Request, response: Response, next:
 
         const pdf = new Pdfmake(fonts)
 
-        console.log(data)
+        let proccess: any[] = []
+        let law: any[] = []
+        let tech: any[] = []
+        let learning: any[] = []
 
-        let docDefinition = {} as TDocumentDefinitions
+        content.diagnostic.proccess.forEach((p: any, i: number) => {
 
-        // let docDefinition: any = {
-        //     pageSize: 'A4',
-        //     pageOrientation: 'landscape',
-        //     pageMargins: [140, 60, 140, 30],
-        //     images: {
-        //         logo: 'public/logo.png'
-        //     },
-        //     styles: {
-        //         header: {
-        //             fontSize: 22,
-        //             bold: true
-        //         },
-        //         info: {
-        //             bold: true
-        //         }
-        //     },
-        //     content: [
-        //         {
-        //             image: 'logo',
-        //             height: 50,
-        //             width: 250,
-        //             alignment: 'center'
-        //         },
+            proccess.push({
+                text: [{ text: `${(i + 1).toString()}) `, style: 'info' }, p.question],
+                style: 'text'
+            },
+                { text: [{ text: 'Resposta: ', style: 'info' }, p.reply], style: 'reply', marginTop: 5 },
+                { text: [{ text: 'Comentário: ', style: 'info' }, content.questions.proccess[i].feedback], style: 'reply', marginTop: 5 },
+                {
+                    canvas: [{
+                        type: 'line', x1: 0, y1: 0, x2: 595.28 - 32, y2: 0, lineWidth: .25, lineColor: '#ccc'
+                    }], margin: [0, 10]
+                })
+        })
 
-        //         { text: 'CERTIFICADO', alignment: 'center', style: 'header', margin: [0, 50] },
-        //         {
-        //             text: [
-        //                 'Certificamos que o aluno ',
-        //                 { text: content.student, style: 'info' },
-        //                 ' concluiu o curso ',
-        //                 { text: content.course, style: 'info' },
-        //                 ' com carga horária de ',
-        //                 { text: content.duration, style: 'info' },
-        //                 ' horas.'
-        //             ], alignment: 'center'
-        //         },
-        //         { text: `Bagé, ${content.date}`, alignment: 'center', margin: [0, 50] },
-        //         // { qr: `https://www.agrocativo.com.br/certificate/${certificate.id}`, fit: 80, absolutePosition: { x: 20, y: 508 } },
-        //         // { text: 'Confira a', absolutePosition: { x: 33, y: 480 }, fontSize: 8, width: 80 },
-        //         // { text: 'autenticidade', absolutePosition: { x: 25, y: 490 }, fontSize: 8, width: 80 },
-        //         {
-        //             columns: [
-        //                 {
-        //                     width: '*',
-        //                     text: content.teacher,
-        //                     alignment: 'center'
-        //                 }, {
-        //                     width: '*',
-        //                     text: content.student,
-        //                     alignment: 'center'
-        //                 },
-        //             ]
-        //         },
-        //         {
-        //             columns: [
-        //                 {
-        //                     width: '*',
-        //                     text: 'Instrutor',
-        //                     alignment: 'center',
-        //                     style: 'info'
-        //                 }, {
-        //                     width: '*',
-        //                     text: 'Aluno',
-        //                     alignment: 'center',
-        //                     style: 'info'
-        //                 },
-        //             ]
-        //         },
-        //         {
-        //             image: 'footer',
-        //             alignment: 'center',
-        //             width: 500,
-        //             margin: [0, 30, 0, 0]
-        //         },
-        //     ]
-        // }
+        content.diagnostic.law.forEach((p: any, i: number) => {
+
+            law.push({
+                text: [{ text: `${(i + 1).toString()}) `, style: 'info' }, p.question],
+                style: 'text'
+            },
+                { text: [{ text: 'Resposta: ', style: 'info' }, p.reply], style: 'reply', marginTop: 5 },
+                { text: [{ text: 'Comentário: ', style: 'info' }, content.questions.law[i].feedback], style: 'reply', marginTop: 5 },
+                {
+                    canvas: [{
+                        type: 'line', x1: 0, y1: 0, x2: 595.28 - 32, y2: 0, lineWidth: .25, lineColor: '#ccc'
+                    }], margin: [0, 10]
+                })
+        })
+
+        content.diagnostic.tech.forEach((p: any, i: number) => {
+
+            tech.push({
+                text: [{ text: `${(i + 1).toString()}) `, style: 'info' }, p.question],
+                style: 'text'
+            },
+                { text: [{ text: 'Resposta: ', style: 'info' }, p.reply], style: 'reply', marginTop: 5 },
+                { text: [{ text: 'Comentário: ', style: 'info' }, content.questions.tech[i].feedback], style: 'reply', marginTop: 5 },
+                {
+                    canvas: [{
+                        type: 'line', x1: 0, y1: 0, x2: 595.28 - 32, y2: 0, lineWidth: .25, lineColor: '#ccc'
+                    }], margin: [0, 10]
+                })
+        })
+
+        content.diagnostic.learning.forEach((p: any, i: number) => {
+
+            learning.push({
+                text: [{ text: `${(i + 1).toString()}) `, style: 'info' }, p.question],
+                style: 'text'
+            },
+                { text: [{ text: 'Resposta: ', style: 'info' }, p.reply], style: 'reply', marginTop: 5 },
+                { text: [{ text: 'Comentário: ', style: 'info' }, content.questions.learning[i].feedback], style: 'reply', marginTop: 5 },
+                {
+                    canvas: [{
+                        type: 'line', x1: 0, y1: 0, x2: 595.28 - 32, y2: 0, lineWidth: .25, lineColor: '#ccc'
+                    }], margin: [0, 10]
+                })
+        })
+
+
+        const setImageBelt = (rate: number) => {
+            if (rate <= 5) {
+                // white belt
+                return 'white'
+            } else if (rate > 5 && rate <= 10) {
+                // yellow belt
+                return 'yellow'
+            } else if (rate > 10 && rate <= 15) {
+                // green belt
+                return 'green'
+            } else if (rate > 15 && rate <= 20) {
+                // black belt
+                return 'black'
+            } else {
+                return 'master_black'
+            }
+        }
+
+
+        let docDefinition: TDocumentDefinitions = {
+
+            footer: function (currentPage, pageCount, pageSize) {
+                return {
+                    margin: [20, 10, 20, 10],
+                    columns: [
+                        { text: `PDAgro - Diagnóstico de Conformidade à LGPD`, marginTop: 10, bold: true, fontSize: 8, alignment: 'left' },
+                        { text: `Página ${currentPage.toString()}/${pageCount}`, marginTop: 10, bold: true, fontSize: 8, alignment: 'right' }
+                    ]
+                }
+            },
+            pageMargins: [20, 30, 20, 40],
+            images: {
+                logo: 'public/logo.png',
+                black: 'public/black_belt.png',
+                masterBlack: 'public/master_black_belt.png',
+                yellow: 'public/yellow_belt.png',
+                white: 'public/white_belt.png',
+                green: 'public/green_belt.png'
+            },
+            styles: {
+                header: {
+                    fontSize: 18,
+                    bold: true
+                },
+                info: {
+                    bold: true
+                },
+                text: {
+                    fontSize: 10
+                },
+                reply: {
+                    fontSize: 9
+                }
+            },
+            content: [
+                {
+                    columns: [
+                        {
+                            image: 'logo',
+                            height: 30,
+                            width: 120
+                        },
+                        {
+                            width: '*',
+                            text: 'DIAGNÓSTICO DE CONFORMIDADE À LGPD',
+                            style: 'info',
+                            alignment: 'right',
+                            margin: [0, 10, 0, 0]
+                        }
+                    ]
+                },
+                { canvas: [{ type: 'line', x1: 0, y1: 0, x2: 595.28 - 32, y2: 0, lineWidth: .5 }], margin: [0, 16] },
+
+                { text: 'VISÃO GERAL', style: 'info', margin: [0, 10] },
+
+                {
+                    columns: [
+                        [
+                            {
+                                text: `Empresa: ${content.name}`,
+                                fontSize: 10
+                            },
+                            {
+                                text: `CNPJ: ${content.cnpj}`,
+                                fontSize: 10
+                            },
+                            {
+                                text: `Pontuação: ${content.resultRate}`,
+                                fontSize: 10
+                            },
+                            {
+                                text: `Data: ${content.created_at}`,
+                                fontSize: 10
+                            }
+                        ],
+                        {
+                            width: 110,
+                            columns: [
+                                {
+                                    image: setImageBelt(content.resultRate),
+                                    height: 100,
+                                    width: 90
+                                }
+                            ]
+
+                        }
+
+                    ]
+
+                },
+
+                { text: 'PROCESSOS', style: 'info', margin: [0, 10] },
+                proccess,
+
+                { text: 'LEI/NORMA', style: 'info', margin: [0, 10] },
+                law,
+
+                { text: 'TECNOLOGIA', style: 'info', margin: [0, 10] },
+                tech,
+
+                { text: 'APRENDIZAGEM', style: 'info', margin: [0, 10] },
+                learning
+            ]
+        }
 
         let pdfDoc = pdf.createPdfKitDocument(docDefinition, {});
 
@@ -171,7 +325,7 @@ export async function getCertificate(request: Request, response: Response, next:
         pdfDoc.end();
 
     } catch (err) {
+        console.log(err)
         next(err);
     }
 }
-

@@ -1,4 +1,5 @@
 
+import { FeedbackDto } from "dtos/feedback-dto";
 import { DiagnosticDto } from "../dtos/diagnostic-dto";
 import { BaseService } from "./base.service";
 
@@ -18,6 +19,33 @@ export default class DiagnosticService extends BaseService {
         }
     }
 
+    async createFeedback(feedback: FeedbackDto): Promise<FeedbackDto | Error> {
+
+        const query = this.database("tb_feedback")
+            .insert(feedback)
+            .returning('*')
+
+        try {
+            const result = await query
+            return result[0]
+        } catch (error) {
+            return error as Error
+        }
+    }
+
+    async getFeedback(userId: string): Promise<any | Error> {
+
+        const query = this.database("tb_feedback")
+            .where('user', userId)
+
+        try {
+            const result = await query
+            return result
+        } catch (error) {
+            return error as Error
+        }
+    }
+
     async getDiagnostic(id?: string, company?: string): Promise<any | Error> {
 
         const query = this.database("tb_diagnostic")
@@ -26,6 +54,19 @@ export default class DiagnosticService extends BaseService {
         if (company) query.where("company", company).first()
 
         if (!id && !company) query.orderBy("nome", "asc")
+
+        try {
+            const result = await query
+            return result
+
+        } catch (error) {
+            return error as Error
+        }
+    }
+
+    async deleteDiagnostic(id: string): Promise<any | Error> {
+
+        const query = this.database("tb_diagnostic").where("id", id).delete()
 
         try {
             const result = await query

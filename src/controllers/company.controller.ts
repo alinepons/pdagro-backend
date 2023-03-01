@@ -60,3 +60,21 @@ export async function createCompany(request: Request, response: Response, next: 
     }
 }
 
+export async function deleteCompany(request: Request, response: Response, next: NextFunction) {
+
+    try {
+
+        const companyService = new CompanyService(request)
+
+        const companyId = request.query.id as string
+
+        console.log(companyId)
+
+        const company = await companyService.deleteCompany(companyId)
+
+        response.json(company);
+    }
+    catch (err) {
+        next(err);
+    }
+}

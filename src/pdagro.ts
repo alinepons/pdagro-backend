@@ -5,6 +5,7 @@ import diagnosticRouter from './routes/diagnostic.route';
 import companyRouter from './routes/company.route';
 import * as jwt from './utils/jwt';
 import cors from 'cors';
+import fs from 'fs'
 
 const app = express();
 
@@ -18,6 +19,13 @@ app.use('/user', jwt.verifyToken, userRouter);
 app.use('/company', jwt.verifyToken, companyRouter);
 app.use('/diagnostic', jwt.verifyToken, diagnosticRouter);
 app.use('/auth', authRouter);
+
+const dir = "./public"
+	if (!fs.existsSync(dir)) {
+		fs.mkdirSync(dir)
+	}
+
+	app.use('/public', express.static('public'))
 
 // Tratamento de erros
 app.use((error: any, req: Request, res: Response, next: NextFunction) => {
