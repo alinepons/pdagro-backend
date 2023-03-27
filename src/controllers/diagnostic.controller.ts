@@ -20,14 +20,14 @@ export async function getQuestions(request: Request, response: Response, next: N
 export async function createDiagnostic(request: Request, response: Response, next: NextFunction) {
 
     try {
-        const userId = response.locals.userId
+        const user = response.locals.userId
         const feedback = request.body.feedback
 
         const diagnosticService = new DiagnosticService(request)
 
         const diagnosticModel = new DiagnosticDto({
             id: generateId(),
-            user: userId,
+            user,
             company: request.body.company,
             reply: request.body.reply
         })
@@ -36,11 +36,12 @@ export async function createDiagnostic(request: Request, response: Response, nex
         const diagnostic = await diagnosticService.createDiagnostic(diagnosticModel)
 
         if (feedback) {
-
+            const email = response.locals.email
             const feedbackModel = new FeedbackDto({
                 id: generateId(),
-                user: userId,
-                reply: feedback
+                user,
+                reply: feedback,
+                email
             })
 
             await diagnosticService.createFeedback(feedbackModel)
@@ -75,9 +76,22 @@ export async function getFeedback(request: Request, response: Response, next: Ne
     try {
         const userId = response.locals.userId
         const diagnosticService = new DiagnosticService(request)
-        const diagnostic = await diagnosticService.getFeedback(userId)
+        const feedback = await diagnosticService.getFeedback(userId)
 
-        response.json(diagnostic);
+        response.json(feedback);
+    }
+    catch (err) {
+        next(err);
+    }
+}
+
+export async function getAllFeedback(request: Request, response: Response, next: NextFunction) {
+
+    try {
+        const diagnosticService = new DiagnosticService(request)
+        const feedback = await diagnosticService.getFeedback()
+
+        response.json(feedback);
     }
     catch (err) {
         next(err);
@@ -197,7 +211,7 @@ export async function getCertificate(request: Request, response: Response, next:
                 // black belt
                 return 'black'
             } else {
-                return 'master_black'
+                return 'masterBlack'
             }
         }
 
@@ -270,28 +284,63 @@ export async function getCertificate(request: Request, response: Response, next:
                                 fontSize: 10
                             },
                             {
-                                text: `Pontuação: ${content.resultRate}`,
+                                text: `Porte: ${content.info.question_1}`,
                                 fontSize: 10
                             },
                             {
-                                text: `Data: ${content.created_at}`,
+                                text: `Atividade: ${content.info.question_2}`,
                                 fontSize: 10
+                            },
+                            {
+                                text: `Escolaridade do gestor: ${content.info.question_3}`,
+                                fontSize: 10
+                            },
+                            {
+                                text: `Formação do gestor: ${content.info.question_5}`,
+                                fontSize: 10
+                            },
+                            {
+                                text: `Qtde. de colaboradores: ${content.info.question_6}`,
+                                fontSize: 10
+                            },
+                            {
+                                text: `Data do diagnóstico: ${content.created_at}`,
+                                fontSize: 10,
+                                marginTop: 15
                             }
                         ],
                         {
-                            width: 110,
+                            width: 220, 
                             columns: [
                                 {
                                     image: setImageBelt(content.resultRate),
                                     height: 100,
                                     width: 90
+                                },
+                                {
+                                    marginLeft: 10,
+                                    columns: [
+                                        [
+                                            {
+                                                text: content.result,
+                                                fontSize: 10
+                                            },
+                                            {
+                                                text: `Pontuação: ${content.resultRate}`,
+                                                fontSize: 10,
+                                                marginTop: 15
+                                            }
+                                        ]
+                                    ]
                                 }
                             ]
-
                         }
-
                     ]
-
+                },
+                {
+                    canvas: [{
+                        type: 'line', x1: 0, y1: 0, x2: 595.28 - 32, y2: 0, lineWidth: .25, lineColor: '#ccc'
+                    }], margin: [0, 10]
                 },
 
                 { text: 'PROCESSOS', style: 'info', margin: [0, 10] },

@@ -33,10 +33,15 @@ export default class DiagnosticService extends BaseService {
         }
     }
 
-    async getFeedback(userId: string): Promise<any | Error> {
+    async getFeedback(userId?: string): Promise<any | Error> {
 
         const query = this.database("tb_feedback")
-            .where('user', userId)
+
+        if (userId) {
+            query.where('user', userId)
+        }
+
+        query.orderBy('created_at','desc')
 
         try {
             const result = await query

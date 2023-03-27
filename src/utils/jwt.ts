@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import * as jwt from 'jsonwebtoken'
+import ErrorResponse from './error-response';
 
 // Tempo em que o token irá expirar.
 const expiration = '24h';
@@ -9,10 +10,12 @@ const secret = "KBqVj4fqebhwEIr+dNCBNI3anw2zhmbFtTn87V8D9HDrQMw+jbP2tCIb4hd6VS9W
 /**
  * Gera um token.
  * @param userId Id do usuário que foi autenticado.
+ * @param role Tipo do usuário que foi autenticado.
+ * @param email Email do usuário que foi autenticado.
  * @returns Token gerado.
  */
-export function signToken(userId: string): string {
-    return jwt.sign({ userId: userId }, secret, { expiresIn: expiration });
+export function signToken(userId: string, role: string, email: string): string {
+    return jwt.sign({ userId, role, email }, secret, { expiresIn: expiration });
 }
 
 /**
@@ -28,24 +31,25 @@ export function verifyToken(request: Request, response: Response, next: NextFunc
 
         jwt.verify(token, secret);
 
-        response.locals.userId = extractUserId(token)
+        response.locals.userId = extractUser(token)['userId']
+        response.locals.role = extractUser(token)['role']
+        response.locals.email = extractUser(token)['email']
 
         next();
     } catch (err) {
-        response.status(401).send();
+        response.status(401).send(new ErrorResponse(1002, "Invalid token", 500))
     }
 }
 
 /**
- * Extrai o userId da payload do token.
+ * Extrai as informações do usuário a partir do token.
  * @param token 
  * @returns 
  */
-export function extractUserId(token: string): string | null {
+export function extractUser(token: string): any {
     let decoded = jwt.decode(token);
 
-    if (decoded && (decoded as jwt.JwtPayload)['userId'])
-        return (decoded as jwt.JwtPayload)['userId'];
+    if (decoded && (decoded as jwt.JwtPayload)['userId']) return (decoded as jwt.JwtPayload);
 
     return null;
 }

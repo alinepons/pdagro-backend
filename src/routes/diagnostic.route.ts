@@ -9,6 +9,7 @@ router.delete('/delete', diagnosticController.deleteDiagnostic);
 router.get('/read', diagnosticController.getDiagnostic);
 router.post('/certificate', diagnosticController.getCertificate);
 
-router.get('/feedback/getAll', diagnosticController.getFeedback);
+router.get('/feedback/user', diagnosticController.getFeedback);
+router.get('/feedback/all', diagnosticController.getAllFeedback);
 
 export default router;

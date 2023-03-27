@@ -13,6 +13,8 @@ export class BaseService {
      * Id do usuário autenticado. Em caso do usuário não autenticado este campo retorna null.
      */
     protected readonly userId: string | null;
+    protected readonly email: string | null;
+    protected readonly role: string | null;
 
     /**
      * Instância do Knex para conexão com banco de dados
@@ -26,6 +28,10 @@ export class BaseService {
         let token = request.headers.authorization ?? '';
         token = token.replace('Bearer ', '');
 
-        this.userId = jwt.extractUserId(token);
+        const user = jwt.extractUser(token)
+
+        this.userId = user ? user['userId'] : null;
+        this.email = user ? user['email'] : null;
+        this.role = user ? user['role'] : null;
     }
 }

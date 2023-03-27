@@ -29,7 +29,7 @@ export default class SessionService extends BaseService {
      */
     async deleteSession(userId: string): Promise<any> {
 
-        const query = this.database("tb_user").where("user", userId).delete()
+        const query = this.database("tb_session").where("user", userId).delete()
         try {
             const result = await query
             return result

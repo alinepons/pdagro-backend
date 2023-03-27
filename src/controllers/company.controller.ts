@@ -36,6 +36,19 @@ export async function getCompanyByUser(request: Request, response: Response, nex
     }
 }
 
+export async function getAllCompany(request: Request, response: Response, next: NextFunction) {
+    try {
+
+        const companyService = new CompanyService(request)
+        const companys = await companyService.getAllCompany()
+
+        response.json(companys);
+    }
+    catch (err) {
+        next(err);
+    }
+}
+
 export async function createCompany(request: Request, response: Response, next: NextFunction) {
 
     try {

@@ -5,6 +5,7 @@ export class UserDto {
     email: string = ''
     password: string = ''
     confirmationCode: string = '' 
+    role: string = ''
     active?: boolean  
     blocked?: boolean
     confirmed?: boolean

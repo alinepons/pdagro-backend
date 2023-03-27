@@ -37,6 +37,7 @@ export async function register(request: Request, response: Response, next: NextF
             fullname: request.body.fullname.trim(),
             email: request.body.email.trim().toLowerCase(),
             password: await bcrypt.hash(request.body.password.trim(), 10),
+            role: 'user',
             confirmationCode: generateCode()
         })
 
@@ -62,7 +63,10 @@ export async function register(request: Request, response: Response, next: NextF
     }
 }
 
+
+
 export async function login(request: Request, response: Response, next: NextFunction) {
+
     try {
         const serviceLogin = new UserService(request);
         const loginModel = new AuthDto(request.body);
@@ -102,11 +106,13 @@ export async function login(request: Request, response: Response, next: NextFunc
             return
         }
 
+        console.log(user)
+
         // Criação da sessão
         const sessionModel = new SessionDto({
             id: generateId(),
             user: user.id,
-            token: signToken(user.id)
+            token: signToken(user.id, user.role, user.email),
         })
 
         const sessionService = new SessionService(request)
@@ -138,7 +144,7 @@ export async function login(request: Request, response: Response, next: NextFunc
         response.json({
             token: session.token,
             user,
-            company: (company && company.id) ? company : null 
+            company: (company && company.id) ? company : null
         })
 
     } catch (error: any) {
@@ -289,6 +295,58 @@ export async function sendConfirmationCode(request: Request, response: Response,
 
     } catch (error: any) {
         next(new ErrorResponse(1022, error.message, 500))
+    }
+
+}
+
+export async function deleteAccount(request: Request, response: Response, next: NextFunction) {
+
+    try {
+
+        const serviceLogin = new UserService(request);
+        const userId = response.locals.userId;
+        const password = request.body.password;
+
+        console.log(userId)
+        console.log(password)
+
+        let user = await serviceLogin.readUser(userId)
+
+        console.log(user)
+
+        if (user instanceof Error) {
+            next(new ErrorResponse(1002, user.message, 500))
+            return
+        }
+
+        if (!user) {
+            next(new ErrorResponse(1003, "Usuário não encontrado", 401))
+            return
+        }
+
+        const match = await bcrypt.compare(password.trim(), user.password)
+
+        if (!match) {
+            next(new ErrorResponse(1006, "Senha incorreta", 401))
+            return
+        }
+
+        const sessionService = new SessionService(request)
+        await sessionService.deleteSession(user.id)
+
+        const userService = new UserService(request)
+        const deleteUser = await userService.deleteUser(user.id)
+
+        console.log(deleteUser)
+
+        // Success
+        response.json({
+            message: `Conta <b>${user.email}</b> excluída com sucesso!`,
+            data: deleteUser
+        })
+
+    } catch (error: any) {
+        next(new ErrorResponse(1008, error.message, 500))
     }
 }
 

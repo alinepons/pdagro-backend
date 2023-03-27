@@ -69,20 +69,20 @@ export default class UserService extends BaseService {
 
     /**
      * Exclui um usuário tornando-o inativo para posterior exclusão definitiva
-     * @param user UserDto
+     * @param userId string
      * @returns 
      */
-    async deleteUser(user: UserDto): Promise<any | Error> {
+    async deleteUser(userId: string): Promise<any | Error> {
 
-        user.deleted_at = new Date()
-        user.active = false
-        user.confirmed = false
-        user.confirmationCode = generateCode()
-        user.blocked = true
+        const query = [ 
+            this.database("tb_user").where("id", userId).delete(),
+            this.database("tb_session").where("user", userId).delete(),
+            this.database("tb_diagnostic").where("user", userId).delete(),
+            this.database("tb_company").where("user", userId).delete()
+        ]
 
-        const query = this.database("tb_user").update(user).where("id", user.id)
         try {
-            const result = await query
+            const result = await Promise.all(query)
             return result
         } catch (error) {
             return error as Error

@@ -68,6 +68,31 @@ export default class CompanyService extends BaseService {
         }
     }
 
+    async getAllCompany(): Promise<any[] | Error> {
+
+        let queryCompany = await this.database("tb_company as c")
+            .orderBy("c.name", "asc")
+
+        for (let i = 0; i < queryCompany.length; i++) {
+            queryCompany[i]["diagnostic"] = await this.database("tb_diagnostic as d")
+                .where("d.company", queryCompany[i].id)
+                .select(
+                    "d.id",
+                    "d.reply",
+                    "d.created_at"
+                )
+
+        }
+
+        try {
+            const result = queryCompany
+            return result
+
+        } catch (error) {
+            return error as Error
+        }
+    }
+
     async deleteCompany(companyId: string): Promise<any | Error> {
 
         const query = this.database("tb_company")
