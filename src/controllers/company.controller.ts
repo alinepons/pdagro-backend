@@ -78,10 +78,7 @@ export async function deleteCompany(request: Request, response: Response, next: 
     try {
 
         const companyService = new CompanyService(request)
-
         const companyId = request.query.id as string
-
-        console.log(companyId)
 
         const company = await companyService.deleteCompany(companyId)
 

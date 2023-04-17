@@ -11,5 +11,6 @@ router.post('/certificate', diagnosticController.getCertificate);
 
 router.get('/feedback/user', diagnosticController.getFeedback);
 router.get('/feedback/all', diagnosticController.getAllFeedback);
+router.delete('/feedback/delete', diagnosticController.deleteFeedback);
 
 export default router;

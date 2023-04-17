@@ -95,12 +95,13 @@ export default class CompanyService extends BaseService {
 
     async deleteCompany(companyId: string): Promise<any | Error> {
 
-        const query = this.database("tb_company")
-            .where('id', companyId)
-            .delete()
+        const query = [ 
+            this.database("tb_company").where("id", companyId).del(),
+            this.database("tb_diagnostic").where("company", companyId).del()
+        ]
 
         try {
-            const result = await query
+            const result = await Promise.all(query)
             return result
         } catch (error) {
             return error as Error

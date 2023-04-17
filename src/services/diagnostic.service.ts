@@ -71,7 +71,20 @@ export default class DiagnosticService extends BaseService {
 
     async deleteDiagnostic(id: string): Promise<any | Error> {
 
-        const query = this.database("tb_diagnostic").where("id", id).delete()
+        const query = this.database("tb_diagnostic").where("id", id).del()
+
+        try {
+            const result = await query
+            return result
+
+        } catch (error) {
+            return error as Error
+        }
+    }
+
+    async deleteFeedback(id: string): Promise<any | Error> {
+
+        const query = this.database("tb_feedback").where("id", id).del()
 
         try {
             const result = await query

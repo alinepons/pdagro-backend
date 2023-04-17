@@ -63,15 +63,13 @@ export async function register(request: Request, response: Response, next: NextF
     }
 }
 
-
-
 export async function login(request: Request, response: Response, next: NextFunction) {
 
     try {
         const serviceLogin = new UserService(request);
         const loginModel = new AuthDto(request.body);
 
-        console.log(loginModel)
+
         let user = await serviceLogin.readUser(null, loginModel.email)
 
         if (user instanceof Error) {
@@ -307,12 +305,7 @@ export async function deleteAccount(request: Request, response: Response, next: 
         const userId = response.locals.userId;
         const password = request.body.password;
 
-        console.log(userId)
-        console.log(password)
-
         let user = await serviceLogin.readUser(userId)
-
-        console.log(user)
 
         if (user instanceof Error) {
             next(new ErrorResponse(1002, user.message, 500))
@@ -336,8 +329,6 @@ export async function deleteAccount(request: Request, response: Response, next: 
 
         const userService = new UserService(request)
         const deleteUser = await userService.deleteUser(user.id)
-
-        console.log(deleteUser)
 
         // Success
         response.json({

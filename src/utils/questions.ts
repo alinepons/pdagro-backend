@@ -157,7 +157,7 @@ export const QUESTIONS = [
                 "comment": "Dado pessoal é aquele relacionado à pessoa natural identificada ou passível de identificação. Considera-se que operação ou tratamento seja qualquer manipulação realizada com dados pessoais.",
                 "multiple": false,
                 "weight_question": 4,
-                "feedback": "Meta: Questionar sobre manipulação de dados (art. 1º) e verificar se a lei é aplicável (art. 4º, LGPD). Boa prática: Verificar se são feitas as operações com dados pessoais em meios físicos e digitais.",
+                "feedback": 'Meta: Questionar sobre manipulação de dados (art. 1º) e verificar se a lei é aplicável (art. 4º, LGPD). Boa prática: Verificar se são feitas as operações com dados pessoais em meios físicos e digitais.',
                 "options": [
                     {
                         "_id": 1,
@@ -227,7 +227,7 @@ export const QUESTIONS = [
                 "comment": "Dado pessoal sensível é o dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural. Entende-se que o cuidado na manipulação dos dados sensíveis requer autorização dos titulares e uso de proteção, por exemplo, criptografia.",
                 "multiple": false,
                 "weight_question": 6,
-                "feedback": "Meta: Tratar os dados pessoais sensíveis de forma adequada (art. 11, LGPD). Boa prática: Classificar arquivos com dados sensíveis. Criptografar pastas e banco de dados.",
+                "feedback": "Meta: Tratar os dados pessoais sensíveis de forma adequada (art. 11, LGPD). /Boa prática: Classificar arquivos com dados sensíveis. Criptografar pastas e banco de dados.",
                 "options": [
                     {
                         "_id": 1,

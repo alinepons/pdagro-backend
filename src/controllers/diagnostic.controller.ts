@@ -33,7 +33,7 @@ export async function createDiagnostic(request: Request, response: Response, nex
         })
 
 
-        const diagnostic = await diagnosticService.createDiagnostic(diagnosticModel)
+        await diagnosticService.createDiagnostic(diagnosticModel)
 
         if (feedback) {
             const email = response.locals.email
@@ -112,13 +112,25 @@ export async function deleteDiagnostic(request: Request, response: Response, nex
     }
 }
 
+export async function deleteFeedback(request: Request, response: Response, next: NextFunction) {
+
+    try {
+        const feedbackId = request.query.id as string
+        const diagnosticService = new DiagnosticService(request)
+        const feedback = await diagnosticService.deleteFeedback(feedbackId)
+
+        response.json(feedback);
+    }
+    catch (err) {
+        next(err);
+    }
+}
+
 export async function getCertificate(request: Request, response: Response, next: NextFunction) {
 
     try {
 
         const content = request.body.data
-
-        console.log(content)
 
         const fonts = {
             Roboto: {

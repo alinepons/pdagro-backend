@@ -75,14 +75,16 @@ export default class UserService extends BaseService {
     async deleteUser(userId: string): Promise<any | Error> {
 
         const query = [ 
-            this.database("tb_user").where("id", userId).delete(),
-            this.database("tb_session").where("user", userId).delete(),
-            this.database("tb_diagnostic").where("user", userId).delete(),
-            this.database("tb_company").where("user", userId).delete()
+            this.database("tb_session").where("user", userId).del(),
+            this.database("tb_diagnostic").where("user", userId).del(),
+            this.database("tb_company").where("user", userId).del(),
+            this.database("tb_user").where("id", userId).del()
         ]
 
         try {
             const result = await Promise.all(query)
+
+            console.log(result)
             return result
         } catch (error) {
             return error as Error
