@@ -157,7 +157,7 @@ export const QUESTIONS = [
                 "comment": "Dado pessoal é aquele relacionado à pessoa natural identificada ou passível de identificação. Considera-se que operação ou tratamento seja qualquer manipulação realizada com dados pessoais.",
                 "multiple": false,
                 "weight_question": 4,
-                "feedback": 'Meta: Questionar sobre manipulação de dados (art. 1º) e verificar se a lei é aplicável (art. 4º, LGPD). Boa prática: Verificar se são feitas as operações com dados pessoais em meios físicos e digitais.',
+                "feedback": 'Meta: Questionar sobre manipulação de dados (art. 1º) e verificar se a lei é aplicável (art. 4º, LGPD). Boa prática: Verificar se são feitas as operações com dados pessoais em meios físicos e digitais. Consulte no Repositório, a Lei 13.709/2018; Lei Geral de Proteção de Dados.',
                 "options": [
                     {
                         "_id": 1,
@@ -192,7 +192,7 @@ export const QUESTIONS = [
                 "comment": "O documento deve conter o mapeamento de dados, no qual é feita a identificação e registro da sequência que o dado pessoal percorre nos processos, desde a sua entrada , permanência e exclusão.",
                 "multiple": false,
                 "weight_question": 4,
-                "feedback": "Meta: Atender aos princípios (art. 6º, LGPD). Boa prática: Boa prática: Identificar as bases legais, tipo de dado, segurança e responsável.",
+                "feedback": "Meta: Atender aos princípios (art. 6º, LGPD). Boa prática: Boa prática: Identificar as bases legais, tipo de dado, segurança e responsável. Mais informações estão no Repositório em Agronegócio: Mapeamento, descrição e análise do fluso de processo de uma empresa do ramo do agronegócio na região noroeste do Estado do Rio Grande do Sul; Mapeamento e modelagem de processos como ferramenta de identificação de melhorias: um caso do agronegócio.",
                 "options": [
                     {
                         "_id": 1,
@@ -227,7 +227,7 @@ export const QUESTIONS = [
                 "comment": "Dado pessoal sensível é o dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural. Entende-se que o cuidado na manipulação dos dados sensíveis requer autorização dos titulares e uso de proteção, por exemplo, criptografia.",
                 "multiple": false,
                 "weight_question": 6,
-                "feedback": "Meta: Tratar os dados pessoais sensíveis de forma adequada (art. 11, LGPD). /Boa prática: Classificar arquivos com dados sensíveis. Criptografar pastas e banco de dados.",
+                "feedback": "Meta: Tratar os dados pessoais sensíveis de forma adequada (art. 11, LGPD). Boa prática: Classificar arquivos com dados sensíveis. Criptografar pastas e banco de dados. Acesse no Repositório a Lei 13.709/2018; Lei Geral de Proteção de Dados na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -262,7 +262,7 @@ export const QUESTIONS = [
                 "comment": "Entende-se que uma forma protegida faz uso de métodos que envolvam criptografia ou técnicas computacionais disponíveis para o envio das mensagens. Um exemplo de envio de dados desprotegidos é o envio simples por e-mail de uma conta pessoal.",
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Verificar permissões (art. 33, LGPD). ABNT NBR ISO/IEC 27701 6.13.1.2 Notificação de eventos de segurança da informação. Boa prática: Identificar os casos de transferência internacional de dados. Garantir a proteção dos dados, utilizar contratos com cláusulas específicas e verificar se o país possui lei e se a empresa adere a proteção de dados pessoais.",
+                "feedback": "Meta: Verificar permissões (art. 33, LGPD). ABNT NBR ISO/IEC 27701 6.13.1.2 Notificação de eventos de segurança da informação. Boa prática: Identificar os casos de transferência internacional de dados. Garantir a proteção dos dados, utilizar contratos com cláusulas específicas e verificar se o país possui lei e se a empresa adere a proteção de dados pessoais. Mais detalhes podem ser encontrados no Repositório: Lei 13.709/2018; O que é ISO 27.701 e como entender a aplicação da norma para gestão da privacidade da informação em 5 passos.",
                 "options": [
                     {
                         "_id": 1,
@@ -297,7 +297,7 @@ export const QUESTIONS = [
                 "comment": "Considera-se privacidade desde a criação dos processos, prevenir incidentes, em que o sistema, produto ou serviço se origina com o conceito de proteger os dados pessoais de titulares, evitar coleta de dados além do necessário, considerar segurança em todas as etapas, ser transparente ao informar as operações que são realizadas com os dados e respeitar a privacidade do titular.",
                 "multiple": false,
                 "weight_question": 6,
-                "feedback": "Meta: Tomar medidas técnicas e organizacionais (art. 46, LGPD). Boa prática: Fornecer produtos ou serviços que protejam os dados de tratamento não autorizado ou ilícito de destruição, perda, alteração e comunicação.",
+                "feedback": "Meta: Tomar medidas técnicas e organizacionais (art. 46, LGPD). Boa prática: Fornecer produtos ou serviços que protejam os dados de tratamento não autorizado ou ilícito de destruição, perda, alteração e comunicação. Mais informações estão no Repositório: 20 passos para implementar a LGPD na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -332,7 +332,7 @@ export const QUESTIONS = [
                 "comment": "Considera-se privacidade desde a criação dos processos, prevenir incidentes, em que o sistema, produto ou serviço se origina com o conceito de proteger os dados pessoais de titulares, evitar coleta de dados além do necessário, considerar segurança em todas as etapas, ser transparente ao informar as operações que são realizadas com os dados e respeitar a privacidade do titular.",
                 "multiple": false,
                 "weight_question": 5,
-                "feedback": "Meta: Respeitar os princípios (art. 9º). Garantir direito de acesso do titular (art. 18º, LGPD). Boa prática: Disponibilizar contato ou sistema para que o titular consiga acessar, atualizar ou pedir a exclusão dos dados. Estabelecer política de privacidade.",
+                "feedback": "Meta: Respeitar os princípios (art. 9º). Garantir direito de acesso do titular (art. 18º, LGPD). Boa prática: Disponibilizar contato ou sistema para que o titular consiga acessar, atualizar ou pedir a exclusão dos dados. Estabelecer política de privacidade. Acesse no Repositório: 10 dicas para atender os princípios da LGPD.",
                 "options": [
                     {
                         "_id": 1,
@@ -367,7 +367,7 @@ export const QUESTIONS = [
                 "comment": "Considera-se privacidade desde a criação dos processos, prevenir incidentes, em que o sistema, produto ou serviço se origina com o conceito de proteger os dados pessoais de titulares, evitar coleta de dados além do necessário, considerar segurança em todas as etapas, ser transparente ao informar as operações que são realizadas com os dados e respeitar a privacidade do titular.",
                 "multiple": false,
                 "weight_question": 5,
-                "feedback": "Meta: Informar as diretrizes do tratamento (art. 7º e 50, LGPD). Boa prática: Usar política de privacidade atualizada que informe: política de segurança da informação, política de gestão de acesso, política de retenção de dados, política de atendimento a direito dos titulares, política de compartilhamento dos dados e política de tratamento de incidentes.",
+                "feedback": "Meta: Informar as diretrizes do tratamento (art. 7º e 50, LGPD). Boa prática: Usar política de privacidade atualizada que informe: política de segurança da informação, política de gestão de acesso, política de retenção de dados, política de atendimento a direito dos titulares, política de compartilhamento dos dados e política de tratamento de incidentes. Consulte no Repositório: 20 passos para implementar a LGPD na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -409,7 +409,7 @@ export const QUESTIONS = [
                 "comment": "Considera-se que o relatório de impacto de proteção de dados deve conter a descrição dos processos de dados pessoais, as medidas adotadas para mitigar riscos de exposição.",
                 "multiple": false,
                 "weight_question": 6,
-                "feedback": "Meta: Verificar definição, (art. 5º, XVII, LGPD). ABNT NBR ISO/IEC 27701 5.6.2 Avaliação de riscos de segurança da informação; 5.6.3 Tratamento de riscos de segurança da informação. Boa prática: Descrição dos processos de tratamento de dados pessoais, as medidas, salvaguardas e mecanismos de mitigação de risco adotados pela empresa.",
+                "feedback": "Meta: Verificar definição, (art. 5º, XVII, LGPD). ABNT NBR ISO/IEC 27701 5.6.2 Avaliação de riscos de segurança da informação; 5.6.3 Tratamento de riscos de segurança da informação. Boa prática: Descrição dos processos de tratamento de dados pessoais, as medidas, salvaguardas e mecanismos de mitigação de risco adotados pela empresa. Acesse no Repositório: Lei 13.709/2018; 20 passos para implementar a LGPD na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -444,7 +444,7 @@ export const QUESTIONS = [
                 "comment": "Um exemplo de falha de segurança é a identificação de que o login ou a senha está incorreta, indicando qual é a informação que falta para o usuário (atacante) entrar no sistema. Entende-se que o monitoramento possa detectar se existem tentativas maliciosas de entrar no seu sistema.",
                 "multiple": false,
                 "weight_question": 1,
-                "feedback": "Meta: Executar medidas técnicas e organizacionais (art. 46, LGPD). ABNT NBR ISO/IEC 27701 6.9.6. Gestão de vulnerabilidades técnicas. Boa prática: Detectar e corrigir riscos na segurança do software e do hardware.",
+                "feedback": "Meta: Executar medidas técnicas e organizacionais (art. 46, LGPD). ABNT NBR ISO/IEC 27701 6.9.6. Gestão de vulnerabilidades técnicas. Boa prática: Detectar e corrigir riscos na segurança do software e do hardware. Mais informações estão no Repositório: Lei Geral de Proteção de Dados na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -479,7 +479,7 @@ export const QUESTIONS = [
                 "comment": null,
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Adotar boas práticas (art. 46, 48 e 50, LGPD). ABNT NBR ISO IEC 27701 6.13 Gestão de incidentes de segurança da informação. Boa prática: Usar as melhores práticas no uso de senhas. Notificar o incidente a ANPD e os titulares, contendo as medidas adotadas.",
+                "feedback": "Meta: Adotar boas práticas (art. 46, 48 e 50, LGPD). ABNT NBR ISO IEC 27701 6.13 Gestão de incidentes de segurança da informação. Boa prática: Usar as melhores práticas no uso de senhas. Notificar o incidente a ANPD e os titulares, contendo as medidas adotadas. Consulte no Repositório: Lei 13.709/2018; ABNT ISO/IEC 27.701.",
                 "options": [
                     {
                         "_id": 1,
@@ -514,7 +514,7 @@ export const QUESTIONS = [
                 "comment": "Considera-se que a informação da existência de vulnerabilidades seja uma boa prática, por exemplo, identificação dos programas de computadores desatualizados, ausência de backups regulares, falta de instrução sobre proteção de dados aos colaboradores.",
                 "multiple": false,
                 "weight_question": 1,
-                "feedback": "Meta: Adotar regras de segurança e boas práticas (art. 50, LGPD). Boa prática: Fazer reunião para abordar o tema de proteção de dados com a gestão e responsáveis técnicos.",
+                "feedback": "Meta: Adotar regras de segurança e boas práticas (art. 50, LGPD). Boa prática: Fazer reunião para abordar o tema de proteção de dados com a gestão e responsáveis técnicos. Mais detalhes podem ser encontrados no Repositório: 10 dicas para atender os princípios da LGPD.",
                 "options": [
                     {
                         "_id": 1,
@@ -556,7 +556,7 @@ export const QUESTIONS = [
                 "comment": "Entende-se que uma forma segura utilize recursos computacionais que garantam a integridade dos dados.",
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Adotar boas práticas (art. 50, LGPD). Boa prática: Armazenar os dados com recursos computacionais.",
+                "feedback": "Meta: Adotar boas práticas (art. 50, LGPD). Boa prática: Armazenar os dados com recursos computacionais. Consulte no Repositório: 20 passos para implementar a LGPD na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -591,7 +591,7 @@ export const QUESTIONS = [
                 "comment": "Entende-se por segurança da tecnologia a adoção de medidas para proteger a integridade dos sistemas de computadores, softwares, máquinas e suas informações, contra ataques, danos ou acessos não autorizados.",
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Definir responsáveis (ABNT NBR ISO/IEC 27701 6.3.1.1 Responsabilidades e papéis da segurança da informação. Boa prática: Ter um profissional para manter os sistemas e administração dos processos de tecnologia, mesmo que terceirizado ou por prazo.",
+                "feedback": "Meta: Definir responsáveis (ABNT NBR ISO/IEC 27701 6.3.1.1 Responsabilidades e papéis da segurança da informação. Boa prática: Ter um profissional para manter os sistemas e administração dos processos de tecnologia, mesmo que terceirizado ou por prazo. Mais informações estão no Repositório: Cartilha LGPD para o setor agropecuário: importância, conceitos e recomendações.",
                 "options": [
                     {
                         "_id": 1,
@@ -626,7 +626,7 @@ export const QUESTIONS = [
                 "comment": "Considera-se um exemplo de controle de acesso a utilização de senha individual.",
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Controlar o acesso dos dados (art. 7º, 11 e 50, LGPD). Boa prática: Conceder acesso a dados, permissão de acordo com as responsabilidades de consulta, modificação e exclusão.",
+                "feedback": "Meta: Controlar o acesso dos dados (art. 7º, 11 e 50, LGPD). Boa prática: Conceder acesso a dados, permissão de acordo com as responsabilidades de consulta, modificação e exclusão. Acesse no Repositório: Lei Geral de Proteção de Dados na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -661,7 +661,7 @@ export const QUESTIONS = [
                 "comment": "Considera-se que backup tem o significado de cópia de segurança, frequentemente utilizado para guardar arquivos em dispositivos de armazenamento.",
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Definir medidas técnicas e organizacionais (art. 7º e 46, LGPD). Boa prática: Realizar backup dos dados.",
+                "feedback": "Meta: Definir medidas técnicas e organizacionais (art. 7º e 46, LGPD). Boa prática: Realizar backup dos dados. Consulte no Repositório: 20 passos para implementar a LGPD na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -696,7 +696,7 @@ export const QUESTIONS = [
                 "comment": "Entende-se por uma boa prática de segurança da informação, atualizar os sistemas e programas utilizados, por exemplo, manter o antivírus atualizado.",
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Definir medidas técnicas e padrões (art. 46 e 51, LGPD). ABNT NBR ISO/IEC 27701 6.9.6. Gestão de vulnerabilidades técnicas. Boa prática: Fazer inventário de softwares e hardwares com atualizações e responsáveis, antivírus e firewall padrões de autenticação, auditorias de segurança a cada ciclo, backup na nuvem.",
+                "feedback": "Meta: Definir medidas técnicas e padrões (art. 46 e 51, LGPD). ABNT NBR ISO/IEC 27701 6.9.6. Gestão de vulnerabilidades técnicas. Boa prática: Fazer inventário de softwares e hardwares com atualizações e responsáveis, antivírus e firewall padrões de autenticação, auditorias de segurança a cada ciclo, backup na nuvem. Mais detalhes podem ser encontrados no Repositório: Lei Geral de Proteção de Dados na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -738,7 +738,7 @@ export const QUESTIONS = [
                 "comment": null,
                 "multiple": false,
                 "weight_question": 2,
-                "feedback": "Meta: Adotar boas práticas e padrões de segurança (art. 50 e 51, LGPD). Boa prática: Realizar treinamentos, com simulações, banners, questionários e ações educativas, assim como disseminação do conhecimento.",
+                "feedback": "Meta: Adotar boas práticas e padrões de segurança (art. 50 e 51, LGPD). Boa prática: Realizar treinamentos, com simulações, banners, questionários e ações educativas, assim como disseminação do conhecimento. Consulte no Repositório: Cartilha LGPD para o setor agropecuário: importância, conceitos e recomendações.",
                 "options": [
                     {
                         "_id": 1,
@@ -773,7 +773,7 @@ export const QUESTIONS = [
                 "comment": null,
                 "multiple": false,
                 "weight_question": 2,
-                "feedback": "Meta: Supervisionar tratamentos e adotar medidas organizacionais (art. 39 e 46, LGPD). Boa prática: Ter um plano de conscientização que preveja recorrência, ações de testes contendo atividades preestabelecidas.",
+                "feedback": "Meta: Supervisionar tratamentos e adotar medidas organizacionais (art. 39 e 46, LGPD). Boa prática: Ter um plano de conscientização que preveja recorrência, ações de testes contendo atividades preestabelecidas. Mais informações estão no Repositório: 20 passos para implementar a LGPD na prática.",
                 "options": [
                     {
                         "_id": 1,
@@ -808,7 +808,7 @@ export const QUESTIONS = [
                 "comment": null,
                 "multiple": false,
                 "weight_question": 2,
-                "feedback": "Meta: Verificar definição e gerir incidentes (art. 49, LGPD). Boa prática: Adotar método seguro para eliminar dados e equipamentos que não seja possível a fazer a recuperação e uso.",
+                "feedback": "Meta: Verificar definição e gerir incidentes (art. 49, LGPD). Boa prática: Adotar método seguro para eliminar dados e equipamentos que não seja possível a fazer a recuperação e uso. Acesse no Repositório: 20 passos para implementar a LGPD na prática.",
                 "options": [
                     {
                         "_id": 1,
