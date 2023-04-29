@@ -157,7 +157,7 @@ export const QUESTIONS = [
                 "comment": "Dado pessoal é aquele relacionado à pessoa natural identificada ou passível de identificação. Considera-se que operação ou tratamento seja qualquer manipulação realizada com dados pessoais.",
                 "multiple": false,
                 "weight_question": 4,
-                "feedback": 'Meta: Questionar sobre manipulação de dados (art. 1º) e verificar se a lei é aplicável (art. 4º, LGPD). Boa prática: Verificar se são feitas as operações com dados pessoais em meios físicos e digitais. Consulte no Repositório, a Lei 13.709/2018; Lei Geral de Proteção de Dados.',
+                "feedback": 'Meta: Questionar sobre manipulação de dados (art. 1º) e verificar se a lei é aplicável (art. 4º, LGPD). Boa prática: Verificar se são feitas as operações com dados pessoais em meios físicos e digitais. Consulte no Repositório, a Lei 13.709/2018; Lei Geral de Proteção de Dados; Cartilha LGPD para o setor agropecuário: importância, conceitos e recomendações.',
                 "options": [
                     {
                         "_id": 1,
@@ -262,7 +262,7 @@ export const QUESTIONS = [
                 "comment": "Entende-se que uma forma protegida faz uso de métodos que envolvam criptografia ou técnicas computacionais disponíveis para o envio das mensagens. Um exemplo de envio de dados desprotegidos é o envio simples por e-mail de uma conta pessoal.",
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Verificar permissões (art. 33, LGPD). ABNT NBR ISO/IEC 27701 6.13.1.2 Notificação de eventos de segurança da informação. Boa prática: Identificar os casos de transferência internacional de dados. Garantir a proteção dos dados, utilizar contratos com cláusulas específicas e verificar se o país possui lei e se a empresa adere a proteção de dados pessoais. Mais detalhes podem ser encontrados no Repositório: Lei 13.709/2018; O que é ISO 27.701 e como entender a aplicação da norma para gestão da privacidade da informação em 5 passos.",
+                "feedback": "Meta: Verificar permissões (art. 33, LGPD). ABNT NBR ISO/IEC 27701 6.13.1.2 Notificação de eventos de segurança da informação. Boa prática: Identificar os casos de transferência internacional de dados. Garantir a proteção dos dados, utilizar contratos com cláusulas específicas e verificar se o país possui lei e se a empresa adere a proteção de dados pessoais. Mais detalhes podem ser encontrados no Repositório: Lei 13.709/2018; O que é ISO 27.701 e como entender a aplicação da norma para gestão da privacidade da informação em 5 passos; ABNT ISO/IEC 27.701.",
                 "options": [
                     {
                         "_id": 1,
@@ -409,7 +409,7 @@ export const QUESTIONS = [
                 "comment": "Considera-se que o relatório de impacto de proteção de dados deve conter a descrição dos processos de dados pessoais, as medidas adotadas para mitigar riscos de exposição.",
                 "multiple": false,
                 "weight_question": 6,
-                "feedback": "Meta: Verificar definição, (art. 5º, XVII, LGPD). ABNT NBR ISO/IEC 27701 5.6.2 Avaliação de riscos de segurança da informação; 5.6.3 Tratamento de riscos de segurança da informação. Boa prática: Descrição dos processos de tratamento de dados pessoais, as medidas, salvaguardas e mecanismos de mitigação de risco adotados pela empresa. Acesse no Repositório: Lei 13.709/2018; 20 passos para implementar a LGPD na prática.",
+                "feedback": "Meta: Verificar definição, (art. 5º, XVII, LGPD). ABNT NBR ISO/IEC 27701 5.6.2 Avaliação de riscos de segurança da informação; 5.6.3 Tratamento de riscos de segurança da informação. Boa prática: Descrição dos processos de tratamento de dados pessoais, as medidas, salvaguardas e mecanismos de mitigação de risco adotados pela empresa. Acesse no Repositório: Lei 13.709/2018; 20 passos para implementar a LGPD na prática; Cartilha LGPD para o setor agropecuário: importância, conceitos e recomendações.",
                 "options": [
                     {
                         "_id": 1,
@@ -444,7 +444,7 @@ export const QUESTIONS = [
                 "comment": "Um exemplo de falha de segurança é a identificação de que o login ou a senha está incorreta, indicando qual é a informação que falta para o usuário (atacante) entrar no sistema. Entende-se que o monitoramento possa detectar se existem tentativas maliciosas de entrar no seu sistema.",
                 "multiple": false,
                 "weight_question": 1,
-                "feedback": "Meta: Executar medidas técnicas e organizacionais (art. 46, LGPD). ABNT NBR ISO/IEC 27701 6.9.6. Gestão de vulnerabilidades técnicas. Boa prática: Detectar e corrigir riscos na segurança do software e do hardware. Mais informações estão no Repositório: Lei Geral de Proteção de Dados na prática.",
+                "feedback": "Meta: Executar medidas técnicas e organizacionais (art. 46, LGPD). ABNT NBR ISO/IEC 27701 6.9.6. Gestão de vulnerabilidades técnicas. Boa prática: Detectar e corrigir riscos na segurança do software e do hardware. Mais informações estão no Repositório: Lei Geral de Proteção de Dados na prática; ABNT ISO/IEC 27.701.",
                 "options": [
                     {
                         "_id": 1,
