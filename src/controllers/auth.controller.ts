@@ -1,4 +1,3 @@
-
 import bcrypt from "bcrypt"
 import { NextFunction } from 'express';
 import { Request, Response } from 'express';
@@ -100,7 +99,7 @@ export async function login(request: Request, response: Response, next: NextFunc
         const match = await bcrypt.compare(loginModel.password.trim(), user.password)
 
         if (!match) {
-            next(new ErrorResponse(1006, "Senha incorreta", 401))
+            next(new ErrorResponse(1006, "Usuário ou senha incorretos", 401))
             return
         }
 
@@ -320,7 +319,7 @@ export async function deleteAccount(request: Request, response: Response, next: 
         const match = await bcrypt.compare(password.trim(), user.password)
 
         if (!match) {
-            next(new ErrorResponse(1006, "Senha incorreta", 401))
+            next(new ErrorResponse(1006, "Usuário ou senha incorretos", 401))
             return
         }
 

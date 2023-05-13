@@ -157,7 +157,7 @@ export const QUESTIONS = [
                 "comment": "Dado pessoal é aquele relacionado à pessoa natural identificada ou passível de identificação. Considera-se que operação ou tratamento seja qualquer manipulação realizada com dados pessoais.",
                 "multiple": false,
                 "weight_question": 4,
-                "feedback": 'Meta: Questionar sobre manipulação de dados (art. 1º) e verificar se a lei é aplicável (art. 4º, LGPD). Boa prática: Verificar se são feitas as operações com dados pessoais em meios físicos e digitais. Consulte no Repositório, a Lei 13.709/2018; Lei Geral de Proteção de Dados; Cartilha LGPD para o setor agropecuário: importância, conceitos e recomendações.',
+                "feedback": 'Meta: Questionar sobre manipulação de dados (art. 1º) e verificar se a lei é aplicável (art. 4º, LGPD). Boa prática: Verificar se são feitas as operações com dados pessoais em meios físicos e digitais. Consulte no Repositório, a Lei 13.709/2018; Lei Geral de Proteção de Dados; Cartilha LGPD para o setor agropecuário: importância, conceitos e recomendações. Processo de adequação à LGPD: um estudo comparativo entre a ISO 27701 e a Lei 13.709/2018.',
                 "options": [
                     {
                         "_id": 1,
@@ -189,10 +189,10 @@ export const QUESTIONS = [
             {
                 "_id": 2,
                 "title": "Existe um documento descrevendo os processos pelos quais os dados pessoais transitam, desde a coleta, armazenamento e até exclusão?",
-                "comment": "O documento deve conter o mapeamento de dados, no qual é feita a identificação e registro da sequência que o dado pessoal percorre nos processos, desde a sua entrada , permanência e exclusão.",
+                "comment": "O documento deve conter o mapeamento de dados, no qual é feita a identificação e registro da sequência que o dado pessoal percorre nos processos, desde a sua entrada, permanência e exclusão.",
                 "multiple": false,
                 "weight_question": 4,
-                "feedback": "Meta: Atender aos princípios (art. 6º, LGPD). Boa prática: Boa prática: Identificar as bases legais, tipo de dado, segurança e responsável. Mais informações estão no Repositório em Agronegócio: Mapeamento, descrição e análise do fluso de processo de uma empresa do ramo do agronegócio na região noroeste do Estado do Rio Grande do Sul; Mapeamento e modelagem de processos como ferramenta de identificação de melhorias: um caso do agronegócio.",
+                "feedback": "Meta: Atender aos princípios (art. 6º, LGPD). Boa prática: Boa prática: Identificar as bases legais, tipo de dado, segurança e responsável. Mais informações estão no Repositório em Agronegócio: Mapeamento, descrição e análise do fluxo de processo de uma empresa do ramo do agronegócio na região noroeste do Estado do Rio Grande do Sul; Mapeamento e modelagem de processos como ferramenta de identificação de melhorias: um caso do agronegócio.",
                 "options": [
                     {
                         "_id": 1,
@@ -206,7 +206,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe o documento mas os processos não estão descritos",
+                        "text": "Existe o documento, mas os processos não estão descritos",
                         "weight_option": 3
                     },
                     {
@@ -241,7 +241,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe manipulação mas os dados sensíveis não são protegidos",
+                        "text": "Existe manipulação, mas os dados sensíveis não são protegidos",
                         "weight_option": 3
                     },
                     {
@@ -262,7 +262,7 @@ export const QUESTIONS = [
                 "comment": "Entende-se que uma forma protegida faz uso de métodos que envolvam criptografia ou técnicas computacionais disponíveis para o envio das mensagens. Um exemplo de envio de dados desprotegidos é o envio simples por e-mail de uma conta pessoal.",
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Verificar permissões (art. 33, LGPD). ABNT NBR ISO/IEC 27701 6.13.1.2 Notificação de eventos de segurança da informação. Boa prática: Identificar os casos de transferência internacional de dados. Garantir a proteção dos dados, utilizar contratos com cláusulas específicas e verificar se o país possui lei e se a empresa adere a proteção de dados pessoais. Mais detalhes podem ser encontrados no Repositório: Lei 13.709/2018; O que é ISO 27.701 e como entender a aplicação da norma para gestão da privacidade da informação em 5 passos; ABNT ISO/IEC 27.701.",
+                "feedback": "Meta: Verificar permissões (art. 33, LGPD). ABNT NBR ISO/IEC 27701 6.13.1.2 Notificação de eventos de segurança da informação. Boa prática: Identificar os casos de transferência internacional de dados. Garantir a proteção dos dados, utilizar contratos com cláusulas específicas e verificar se o país possui lei e se a empresa adere a proteção de dados pessoais. Mais detalhes podem ser encontrados no Repositório: Lei 13.709/2018; O que é ISO 27701 e como entender a aplicação da norma para gestão da privacidade da informação em 5 passos; ABNT ISO/IEC 27701.",
                 "options": [
                     {
                         "_id": 1,
@@ -276,7 +276,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe o envio mas não são protegidos",
+                        "text": "Existe o envio, mas não são protegidos",
                         "weight_option": 3
                     },
                     {
@@ -293,7 +293,7 @@ export const QUESTIONS = [
             },
             {
                 "_id": 5,
-                "title": "A criação de processos, no âmito da sua organização, garante a proteção da privacidade dos dados desde o momento que são gerados?",
+                "title": "A criação de processos, no âmbito da sua organização, garante a proteção da privacidade dos dados desde o momento que são gerados?",
                 "comment": "Considera-se privacidade desde a criação dos processos, prevenir incidentes, em que o sistema, produto ou serviço se origina com o conceito de proteger os dados pessoais de titulares, evitar coleta de dados além do necessário, considerar segurança em todas as etapas, ser transparente ao informar as operações que são realizadas com os dados e respeitar a privacidade do titular.",
                 "multiple": false,
                 "weight_question": 6,
@@ -311,7 +311,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe criação mas não garante a proteção de dados",
+                        "text": "Existe criação, mas não garante a proteção de dados",
                         "weight_option": 3
                     },
                     {
@@ -329,7 +329,7 @@ export const QUESTIONS = [
             {
                 "_id": 6,
                 "title": "Existe um meio (contato ou sistema que manipula dados) para que o titular possa solicitar a eliminação de seus dados?",
-                "comment": "Considera-se privacidade desde a criação dos processos, prevenir incidentes, em que o sistema, produto ou serviço se origina com o conceito de proteger os dados pessoais de titulares, evitar coleta de dados além do necessário, considerar segurança em todas as etapas, ser transparente ao informar as operações que são realizadas com os dados e respeitar a privacidade do titular.",
+                "comment": null,
                 "multiple": false,
                 "weight_question": 5,
                 "feedback": "Meta: Respeitar os princípios (art. 9º). Garantir direito de acesso do titular (art. 18º, LGPD). Boa prática: Disponibilizar contato ou sistema para que o titular consiga acessar, atualizar ou pedir a exclusão dos dados. Estabelecer política de privacidade. Acesse no Repositório: 10 dicas para atender os princípios da LGPD.",
@@ -346,7 +346,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe um meio mas as solicitações não são atendidas",
+                        "text": "Existe um meio, mas as solicitações não são atendidas",
                         "weight_option": 3
                     },
                     {
@@ -364,7 +364,7 @@ export const QUESTIONS = [
             {
                 "_id": 7,
                 "title": "Existe política de privacidade, em página web ou de forma física e fixada em local visível, informando aos titulares as medidas de proteção de dados?",
-                "comment": "Considera-se privacidade desde a criação dos processos, prevenir incidentes, em que o sistema, produto ou serviço se origina com o conceito de proteger os dados pessoais de titulares, evitar coleta de dados além do necessário, considerar segurança em todas as etapas, ser transparente ao informar as operações que são realizadas com os dados e respeitar a privacidade do titular.",
+                "comment": null,
                 "multiple": false,
                 "weight_question": 5,
                 "feedback": "Meta: Informar as diretrizes do tratamento (art. 7º e 50, LGPD). Boa prática: Usar política de privacidade atualizada que informe: política de segurança da informação, política de gestão de acesso, política de retenção de dados, política de atendimento a direito dos titulares, política de compartilhamento dos dados e política de tratamento de incidentes. Consulte no Repositório: 20 passos para implementar a LGPD na prática.",
@@ -381,7 +381,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe mas não informa as medidas de proteção de dados",
+                        "text": "Existe, mas não informa as medidas de proteção de dados",
                         "weight_option": 3
                     },
                     {
@@ -406,7 +406,7 @@ export const QUESTIONS = [
             {
                 "_id": 1,
                 "title": "Existe a elaboração de relatório de impacto de proteção de dados quando a manipulação de dados envolver dados pessoais sensíveis?",
-                "comment": "Considera-se que o relatório de impacto de proteção de dados deve conter a descrição dos processos de dados pessoais, as medidas adotadas para mitigar riscos de exposição.",
+                "comment": "Considera-se que o relatório de impacto de proteção de dados deve conter a descrição dos processos de dados pessoais e medidas adotadas para mitigar riscos de exposição.",
                 "multiple": false,
                 "weight_question": 6,
                 "feedback": "Meta: Verificar definição, (art. 5º, XVII, LGPD). ABNT NBR ISO/IEC 27701 5.6.2 Avaliação de riscos de segurança da informação; 5.6.3 Tratamento de riscos de segurança da informação. Boa prática: Descrição dos processos de tratamento de dados pessoais, as medidas, salvaguardas e mecanismos de mitigação de risco adotados pela empresa. Acesse no Repositório: Lei 13.709/2018; 20 passos para implementar a LGPD na prática; Cartilha LGPD para o setor agropecuário: importância, conceitos e recomendações.",
@@ -423,7 +423,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe o relatório mas não envolve dados sensíveis",
+                        "text": "Existe o relatório, mas não envolve dados sensíveis",
                         "weight_option": 3
                     },
                     {
@@ -444,7 +444,7 @@ export const QUESTIONS = [
                 "comment": "Um exemplo de falha de segurança é a identificação de que o login ou a senha está incorreta, indicando qual é a informação que falta para o usuário (atacante) entrar no sistema. Entende-se que o monitoramento possa detectar se existem tentativas maliciosas de entrar no seu sistema.",
                 "multiple": false,
                 "weight_question": 1,
-                "feedback": "Meta: Executar medidas técnicas e organizacionais (art. 46, LGPD). ABNT NBR ISO/IEC 27701 6.9.6. Gestão de vulnerabilidades técnicas. Boa prática: Detectar e corrigir riscos na segurança do software e do hardware. Mais informações estão no Repositório: Lei Geral de Proteção de Dados na prática; ABNT ISO/IEC 27.701.",
+                "feedback": "Meta: Executar medidas técnicas e organizacionais (art. 46, LGPD). ABNT NBR ISO/IEC 27701 6.9.6. Gestão de vulnerabilidades técnicas. Boa prática: Detectar e corrigir riscos na segurança do software e do hardware. Mais informações estão no Repositório: Lei Geral de Proteção de Dados na prática; ABNT ISO/IEC 27701.",
                 "options": [
                     {
                         "_id": 1,
@@ -458,7 +458,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe monitoramento mas não é feita as devidas correções",
+                        "text": "Existe monitoramento, mas não é feita correção",
                         "weight_option": 3
                     },
                     {
@@ -479,7 +479,7 @@ export const QUESTIONS = [
                 "comment": null,
                 "multiple": false,
                 "weight_question": 3,
-                "feedback": "Meta: Adotar boas práticas (art. 46, 48 e 50, LGPD). ABNT NBR ISO IEC 27701 6.13 Gestão de incidentes de segurança da informação. Boa prática: Usar as melhores práticas no uso de senhas. Notificar o incidente a ANPD e os titulares, contendo as medidas adotadas. Consulte no Repositório: Lei 13.709/2018; ABNT ISO/IEC 27.701.",
+                "feedback": "Meta: Adotar boas práticas (art. 46, 48 e 50, LGPD). ABNT NBR ISO IEC 27701 6.13 Gestão de incidentes de segurança da informação. Boa prática: Usar as melhores práticas no uso de senhas. Notificar o incidente a ANPD e os titulares, contendo as medidas adotadas. Consulte no Repositório: Lei 13.709/2018; ABNT ISO/IEC 27701.",
                 "options": [
                     {
                         "_id": 1,
@@ -493,7 +493,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe plano de ação mas não é eficiente",
+                        "text": "Existe plano de ação, mas não é eficiente",
                         "weight_option": 3
                     },
                     {
@@ -528,7 +528,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe o momento mas não existe observações das vulnerabilidades",
+                        "text": "Existe o momento, mas não existe observações das vulnerabilidades",
                         "weight_option": 3
                     },
                     {
@@ -605,7 +605,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe responsável mas não cuida da segurança",
+                        "text": "Existe responsável, mas não cuida da segurança",
                         "weight_option": 3
                     },
                     {
@@ -640,7 +640,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe controle de acesso mas sem níveis de responsabilidade",
+                        "text": "Existe controle de acesso, mas sem níveis de responsabilidade",
                         "weight_option": 3
                     },
                     {
@@ -675,7 +675,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe backup mas não é efetuado com frequência",
+                        "text": "Existe backup, mas não é efetuado com frequência",
                         "weight_option": 3
                     },
                     {
@@ -710,7 +710,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe a política mas os softwares não são atualizados",
+                        "text": "Existe a política, mas os softwares não são atualizados",
                         "weight_option": 3
                     },
                     {
@@ -752,7 +752,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe o treinamento mas não existe participação",
+                        "text": "Existe o treinamento, mas não existe participação",
                         "weight_option": 3
                     },
                     {
@@ -787,7 +787,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe conscientização mas não exemplifica",
+                        "text": "Existe conscientização, mas não exemplifica",
                         "weight_option": 3
                     },
                     {
@@ -822,7 +822,7 @@ export const QUESTIONS = [
                     },
                     {
                         "_id": 3,
-                        "text": "Existe treinamento mas não ensina como fazer o descarte",
+                        "text": "Existe treinamento, mas não ensina como fazer o descarte",
                         "weight_option": 3
                     },
                     {

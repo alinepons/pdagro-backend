@@ -9,10 +9,12 @@ import fs from 'fs'
 
 const app = express();
 
-const port = 3010;
+const port = process.env.PORT_HTTP || 3100;
 
 app.use(cors());
 app.use(express.json());
+
+// https://api.pdagro.com/auth/login
 
 // Registra rotas.
 app.use('/user', jwt.verifyToken, userRouter);
