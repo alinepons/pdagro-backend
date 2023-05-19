@@ -292,7 +292,7 @@ export async function getCertificate(request: Request, response: Response, next:
                                 fontSize: 10
                             },
                             {
-                                text: `CNPJ: ${content.cnpj}`,
+                                text: `CPF/CNPJ: ${content.cnpj}`,
                                 fontSize: 10
                             },
                             {
