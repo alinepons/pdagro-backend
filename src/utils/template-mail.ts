@@ -109,18 +109,18 @@ export default class TemplateMail {
         <td
             style="font-family: Montserrat, -apple-system, 'Segoe UI', sans-serif; font-size: 12px; padding: 48px; --text-opacity: 1; color: #eceff1; color: rgba(236, 239, 241, var(--text-opacity));text-align: center">
             <p align="center" style="cursor: default; margin-bottom: 16px;">
-                <a href="https://www.facebook.com/lure.dating" target="_blank"
+                <a href="https://www.facebook.com/pdagro20" target="_blank"
                     style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-decoration: none;">
                     <img alt="Facebook" width="30"
                         style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle; margin-right: 12px;"
                         src="https://firebasestorage.googleapis.com/v0/b/lure-4all.appspot.com/o/images%2Ffacebook.png?alt=media&token=b87a762f-69e0-4c3f-b806-d25809a7b3f9" />
-                    <a href="https://www.twitter.com/luredating" target="_blank"
+                    <a href="https://www.twitter.com/Pdagro20" target="_blank"
                         style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-decoration: none;">
                         <img width="30" alt="Twitter"
                             style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle; margin-right: 12px;"
                             src="https://firebasestorage.googleapis.com/v0/b/lure-4all.appspot.com/o/images%2Ftwitter.png?alt=media&token=9db8c666-7c30-44d4-bbca-160940230a3b" />
                     </a>
-                    <a href="https://www.instagram.com/lure.brasil" target="_blank"
+                    <a href="https://www.instagram.com/pdagro20" target="_blank"
                         style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); text-decoration: none;">
                         <img width="30" alt="Instagram"
                             style="border: 0; max-width: 100%; line-height: 100%; vertical-align: middle; margin-right: 12px;"
@@ -129,9 +129,9 @@ export default class TemplateMail {
             </p>
             <p
                 style="--text-opacity: 1; color: #263238; color: rgba(38, 50, 56, var(--text-opacity)); margin-bottom: 48px;">
-                Ao utilizar a plataforma <strong>PDAgro</strong> você estará sujeito aos <a href="" class="hover-underline"
+                Ao utilizar a plataforma <strong>PDAgro</strong> você estará sujeito aos <a href="https://api.pdagro.com/public/privacy-policy.pdf" class="hover-underline"
                     style="--text-opacity: 1; color: #7367f0; text-decoration: none;" target="_blank">Termos de Uso</a> e
-                <a href="" class="hover-underline"
+                <a href="https://api.pdagro.com/public/privacy-policy.pdf" class="hover-underline"
                     style="--text-opacity: 1; color: #7367f0; text-decoration: none;" target="_blank">Política de Privacidade</a>.
             </p>
         </td>
